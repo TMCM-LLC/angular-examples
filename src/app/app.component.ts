@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from './services/auth.service';
 import {Observable, Subscription} from 'rxjs';
 
@@ -7,17 +7,18 @@ import {Observable, Subscription} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy {
   loggedIn: boolean;
   items: number[] = [];
   itemObservable: Observable<number>;
   itemSubscription: Subscription;
+  loggedInSubscription: Subscription;
 
   constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.authService.isLoggedIn.subscribe((result) => {
+    this.loggedInSubscription = this.authService.isLoggedIn.subscribe((result) => {
       this.loggedIn = result;
     });
 
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit{
       let count = 1;
       const interval = setInterval(() => {
         obs.next(count);
-        console.log(count);
+        console.log('Count: ', count);
         if (count === 7) {
           window.clearInterval(interval);
           obs.complete();
@@ -33,6 +34,12 @@ export class AppComponent implements OnInit{
         count++;
       }, 1000);
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.loggedInSubscription) {
+      this.loggedInSubscription.unsubscribe();
+    }
   }
 
   logIn(duration?: number): void {
