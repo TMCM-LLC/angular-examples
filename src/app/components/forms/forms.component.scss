@@ -1,0 +1,51 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  margin-block: 1.5rem;
+}
+
+.new-person-form {
+  input {
+    margin-inline-end: 0.75rem;
+  }
+
+  input[type="text"] {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+  }
+
+  .btn {
+    display: inline-block;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #dc3545;
+  padding: 0.5rem;
+  width: 10rem;
+  color: white;
+  border: none;
+  margin: 0;
+}
+
+td {
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 1.25rem;
+}

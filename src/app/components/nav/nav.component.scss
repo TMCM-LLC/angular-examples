@@ -33,3 +33,11 @@
   margin-right: 2rem;
   font-size: 2rem;
 }
+
+.nav-link {
+  cursor: pointer;
+  margin-inline-end: 1rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

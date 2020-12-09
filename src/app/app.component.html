@@ -1,33 +1,5 @@
 <app-nav></app-nav>
 
 <div class="content" role="main">
-
-  <h2>Service Observables</h2>
-  <div><span>Logged in: {{loggedIn}}</span></div>
-  <div class="card-container">
-    <div class="card card-small btn" (click)="logIn()">
-      Log In
-    </div>
-
-    <div class="card card-small btn danger" (click)="logOut()">
-      Log Out
-    </div>
-
-    <div class="card card-small btn info" (click)="logIn(3000)">
-      Log In 3 Sec
-    </div>
-  </div>
-
-  <h2>Unsubscribe</h2>
-  <div class="card-container">
-    <div class="card card-small btn info" (click)="countItems()">Count 7 Items</div>
-    <div class="card card-small btn danger" (click)="stopCountItems()">Stop Counting Items</div>
-  </div>
-  <div class="card-container">
-    <div class="card card-small" *ngFor="let item of items">
-      {{item}}
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

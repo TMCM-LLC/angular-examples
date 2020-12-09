@@ -1,0 +1,24 @@
+<div class="main-wrapper">
+  <h1>Naughty/Nice List</h1>
+
+  <form class="new-person-form" [formGroup]="addPersonForm">
+    <label>
+      Name: <input type="text" formControlName="name">
+    </label>
+    <label>
+      Nice? <input class="checkbox" type="checkbox" formControlName="nice">
+    </label>
+    <button class="btn" (click)="submitPerson()">Add Person</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Nice?</th>
+    </tr>
+    <tr *ngFor="let person of people">
+      <td>{{person.name}}</td>
+      <td><fa-icon [icon]="person.nice ? faSmile : faFrown"></fa-icon></td>
+    </tr>
+  </table>
+</div>
