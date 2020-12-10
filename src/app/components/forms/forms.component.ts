@@ -29,6 +29,10 @@ export class FormsComponent implements OnInit {
   }
 
   submitPerson(): void {
+    if (this.addPersonForm.invalid) {
+      return;
+    }
+
     const newPerson: Person = {
       name: this.addPersonForm.get('name').value,
       nice: this.addPersonForm.get('nice').value
