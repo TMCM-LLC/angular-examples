@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
+import {Observable, Subscription } from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -26,7 +26,6 @@ export class ObservablesComponent implements OnInit, OnDestroy {
       let count = 1;
       const interval = setInterval(() => {
         obs.next(count);
-        console.log('Count: ', count);
         if (count === 7) {
           window.clearInterval(interval);
           obs.complete();

@@ -2,26 +2,26 @@
   <h2>Service Observables</h2>
   <div><span>Logged in: {{loggedIn}}</span></div>
   <div class="card-container">
-    <div class="card card-small btn" (click)="logIn()">
+    <div id="loginButton" class="card card-small btn" (click)="logIn()">
       Log In
     </div>
 
-    <div class="card card-small btn danger" (click)="logOut()">
+    <div id="logoutButton" class="card card-small btn danger" (click)="logOut()">
       Log Out
     </div>
 
-    <div class="card card-small btn info" (click)="logIn(3000)">
+    <div id="loginDelayedButton" class="card card-small btn info" (click)="logIn(3000)">
       Log In 3 Sec
     </div>
   </div>
 
   <h2>Unsubscribe</h2>
   <div class="card-container">
-    <div class="card card-small btn info" (click)="countItems()">Count 7 Items</div>
-    <div class="card card-small btn danger" (click)="stopCountItems()">Stop Counting Items</div>
+    <div id="countBtn" class="card card-small btn info" (click)="countItems()">Count 7 Items</div>
+    <div id="stopCountBtn" class="card card-small btn danger" (click)="stopCountItems()">Stop Counting Items</div>
   </div>
   <div class="card-container">
-    <div class="card card-small" *ngFor="let item of items">
+    <div class="card card-small item" *ngFor="let item of items">
       {{item}}
     </div>
   </div>
